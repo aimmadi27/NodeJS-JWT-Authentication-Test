@@ -6,6 +6,8 @@ const exjwt= require('express-jwt');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+app.use(express.static(__dirname));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use((req, res,next ) => {

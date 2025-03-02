@@ -11,6 +11,9 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+
+    <link rel="stylesheet" href="styles.css">
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js"
       integrity="sha512-v8+bPcpk4Sj7CKB11+gK/FnsbgQ15jTwZamnBf/xDmiQDcgOIYufBo6Acu1y30vrk8gg5su4x0CG3zfPaq5Fcg=="
@@ -55,6 +58,13 @@
             localStorage.setItem("jwt", token);
             getDashboard();
           }
+        })
+          .catch((error) => {
+            if (error.response && error.response.status === 401) {
+                alert("Incorrect Username or Password! Please try again.");
+            } else {
+                alert("An unexpected error occurred. Please try again later.");
+            }
         });
       }
 
